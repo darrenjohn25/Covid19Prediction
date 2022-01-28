@@ -1,13 +1,13 @@
 import numpy as np
 import streamlit as st
-# import tensorflow as tf
+import tensorflow as tf
 from PIL import Image
 import cv2
 import numpy as np
 # new branch changes
 st.markdown("<h1 style='text-align: center;'>Squirrel VS Tortoise</h1>", unsafe_allow_html=True)
 #change in master
-# model = tf.keras.models.load_model("resnet_ct.h5")
+model = tf.keras.models.load_model("resnet_ct.h5")
 ### load file
 file = st.file_uploader("Upload a CT file of Covid 19 in Jpeg ", type="jpg")
 
