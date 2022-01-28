@@ -11,7 +11,7 @@ st.markdown("<h1 style='text-align: center;'>Squirrel VS Tortoise</h1>", unsafe_
 model = tf.keras.models.load_model("resnet_ct.h5")
 ### load file
 file = st.file_uploader("Upload a CT file of Covid 19 in Jpeg ", type="jpg")
-classes = {'Normal': 0, 'Covid': 1}
+classes = {'Normal': 1, 'Covid': 0}
 if file is not None:
     image = Image.open(file)
     st.image(
