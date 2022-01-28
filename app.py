@@ -2,6 +2,7 @@ import numpy as np
 import streamlit as st
 import tensorflow as tf
 import cv2
+from cv2 import *
 import numpy as np
 from PIL import Image
 
