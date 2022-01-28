@@ -3,8 +3,6 @@ import streamlit as st
 import tensorflow as tf
 import cv2
 import numpy as np
-from PIL import Image
-
 # new branch changes
 st.markdown("<h1 style='text-align: center;'>Squirrel VS Tortoise</h1>", unsafe_allow_html=True)
 #change in master
@@ -13,7 +11,8 @@ model = tf.keras.models.load_model("resnet_ct.h5")
 file = st.file_uploader("Upload a CT file of Covid 19 in Jpeg ", type="jpg")
 classes = {'Normal': 1, 'Covid': 0}
 if file is not None:
-    image = Image.open(file)
+    image = cv2.imread(file)
+
     st.image(
         image,
     )
