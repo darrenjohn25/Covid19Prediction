@@ -3,13 +3,15 @@ import streamlit as st
 import tensorflow as tf
 import cv2
 import numpy as np
+from PIL import Image
+
 # new branch changes
 st.markdown("<h1 style='text-align: center;'>Squirrel VS Tortoise</h1>", unsafe_allow_html=True)
 #change in master
 model = tf.keras.models.load_model("resnet_ct.h5")
 ### load file
 file = st.file_uploader("Upload a CT file of Covid 19 in Jpeg ", type="jpg")
-
+classes = {'Normal': 0, 'Covid': 1}
 if file is not None:
     image = Image.open(file)
     st.image(
@@ -20,5 +22,5 @@ if file is not None:
     img = np.array(img / 255.0)
     img = np.expand_dims(img,axis=0)
     prediction = model.predict(img)
-    pred_new= np.argmax(prediction, axis=1)
-    st.title("Predicted Label for the image is {}".format(pred_new))
+    # pred_new= np.argmax(prediction, axis=1)
+    st.title("Predicted Label for the image is {}".format(list(classes.keys())[list(classes.values()).index(int(tf.round(prediction)))]))
