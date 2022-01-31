@@ -27,4 +27,4 @@ if file is not None:
     if (pred_new == 1):
         st.title("Predicted Label for the image is Normal")
     else:
-        st.title("Predicted Label for the image is Covid-19")
+        st.title("Predicted Label for the image is Covid-19
